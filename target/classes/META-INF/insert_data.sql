@@ -1,0 +1,11 @@
+insert into joueur(nom,prenom,date_naissance) values('delteil','amandine','1983-03-21');
+insert into joueur(nom,prenom,date_naissance) values('mercadier','yoan','1984-10-22');
+insert into joueur(nom,prenom,date_naissance) values('pichery','melanie','1990-05-10');
+insert into joueur(nom,prenom,date_naissance) values('handoura','youcef','1989-11-15');
+insert into joueur(nom,prenom,date_naissance) values('diligent','melanie','1998-01-09'); 
+insert into joueur(nom,prenom,date_naissance) values('xander','alexandre','1992-03-21');
+insert into joueur(nom,prenom,date_naissance) values('delteil','alessia','2013-04-21');
+insert into joueur(nom,prenom,date_naissance) values('aalou','aniss','1999-08-07');
+insert into joueur(nom,prenom,date_naissance) values('delteil','jean','2000-01-08');
+insert into joueur(nom,prenom,date_naissance) values('tasselli','laurence','1986-02-27');
+commit;

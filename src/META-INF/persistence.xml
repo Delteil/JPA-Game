@@ -26,6 +26,10 @@
 			<!-- sql execution - insertion -->
 			<property name = "javax.persistence.sql-load-script-source" value="META-INF/insert_data.sql" />
 			
+			<!-- display sql execution -->
+			<property name="hibernate.show_sql" value="true" />
+			
+			
 		</properties>
 	</persistence-unit>
 </persistence>

@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,14 +17,14 @@ import javax.persistence.Table;
 public class Avatar {
 
 	@Id
-	@Column(name = "id_personnage")
+	@Column(name = "id_avatar")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@OneToMany(mappedBy="avatar")
-	private Set<Joueur> joueurs;
+	@OneToOne(mappedBy = "avatar")
+	private Joueur joueur;
 
-	@OneToMany(mappedBy="avatar")
+	@OneToMany(mappedBy = "avatar")
 	private Set<Engin> engins;
 
 	@Column(name = "nom", length = 50, nullable = false)
@@ -33,7 +34,7 @@ public class Avatar {
 	private Integer puissance;
 
 	public Avatar() {
-		super();
+
 	}
 
 	public Integer getId() {
@@ -43,13 +44,13 @@ public class Avatar {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
-	public Set<Joueur> getJoueurs() {
-		return joueurs;
+
+	public Joueur getJoueur() {
+		return joueur;
 	}
 
-	public void setJoueurs(Set<Joueur> joueurs) {
-		this.joueurs = joueurs;
+	public void setJoueur(Joueur joueur) {
+		this.joueur = joueur;
 	}
 
 	public Set<Engin> getEngins() {
@@ -78,10 +79,7 @@ public class Avatar {
 
 	@Override
 	public String toString() {
-		return "Avatar [id=" + id + ", joueurs=" + joueurs + ", engins=" + engins + ", nom=" + nom + ", puissance="
-				+ puissance + "]";
+		return "Avatar [id=" + id + ", engins=" + engins + ", nom=" + nom + ", puissance=" + puissance + "]";
 	}
-
-	
 
 }

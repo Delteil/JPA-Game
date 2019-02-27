@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -28,7 +28,7 @@ public class Joueur {
 	@JoinTable(name = "joueur_partie", joinColumns = @JoinColumn(name = "id_joueur", referencedColumnName = "id_joueur"), inverseJoinColumns = @JoinColumn(name = "id_partie", referencedColumnName = "id_partie"))
 	private Set<Partie> parties;
 
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "id_avatar")
 	private Avatar avatar;
 

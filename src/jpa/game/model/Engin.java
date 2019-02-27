@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "engin")
 
-// Heritage de la classe Engin avec une Table/Classe
+// Heritage de la classe Engin avec 1 Table/Classe
 @Inheritance(strategy= InheritanceType.JOINED) 
 
 public abstract class Engin {
@@ -50,7 +50,7 @@ public abstract class Engin {
 		return avatar;
 	}
 
-	public void setPersonnage(Avatar avatar) {
+	public void setAvatar(Avatar avatar) {
 		this.avatar = avatar;
 	}
 
@@ -72,7 +72,7 @@ public abstract class Engin {
 
 	@Override
 	public String toString() {
-		return "Engin [id=" + id + ", avatar=" + avatar + ", couleur=" + couleur + ", vitesseMax=" + vitesseMax + "]";
+		return "Engin [id=" + id + ", couleur=" + couleur + ", vitesseMax=" + vitesseMax + "]";
 	}
 
 	

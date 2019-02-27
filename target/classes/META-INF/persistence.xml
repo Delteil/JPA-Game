@@ -21,7 +21,7 @@
 			<!-- The database password -->
 			<property name="javax.persistence.jdbc.password" value="root" />
 
-			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
 			
 			<!-- sql execution - insertion -->
 			<property name = "javax.persistence.sql-load-script-source" value="META-INF/insert_data.sql" />

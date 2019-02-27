@@ -31,7 +31,6 @@ public class Partie {
 
 	@Column(name = "date", length = 30, nullable = false)
 	private LocalDate date;
-	
 
 	public Partie() {
 
@@ -79,9 +78,7 @@ public class Partie {
 
 	@Override
 	public String toString() {
-		return "Partie [id=" + id + ", joueurs=" + joueurs + ", niveau=" + niveau + ", score=" + score + ", date="
-				+ date + "]";
+		return "Partie [id=" + id + ", niveau=" + niveau + ", score=" + score + ", date=" + date + "]";
 	}
 
-	
 }

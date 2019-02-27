@@ -29,14 +29,14 @@ public class MainJpaGame {
 		// the persistent object is modified
 		j.setPrenom("Didine");
 
-		// the new objet is transient
-		Joueur j2 = new Joueur();
-//		j2.setId(4);
-		j2.setNom("BOND");
-		j2.setPrenom("James");
-
-		// this object become a persistent object
-		em.persist(j2);
+//		// the new objet is transient
+//		Joueur j2 = new Joueur();
+////		j2.setId(4);
+//		j2.setNom("BOND");
+//		j2.setPrenom("James");
+//
+//		// this object become a persistent object
+//		em.persist(j2);
 
 		j = em.find(Joueur.class, 1);
 		System.out.println(j.toString());
@@ -51,7 +51,7 @@ public class MainJpaGame {
 		TypedQuery<Joueur> query = em.createQuery("select j from Joueur j", Joueur.class);
 		System.out.println(query.getResultList().size());
 
-		// infos des 8 premières lignes
+		// infos des 10 premières lignes
 		query.getResultList().stream().forEach(System.out::println);
 
 		transaction.begin();
@@ -97,21 +97,36 @@ public class MainJpaGame {
 
 		// all the objects will be detached
 		transaction.commit();
-		
-		// afficher les infos du joueur James
-		Joueur j1 = JpaGameRepository.getJoueurByName("Bond");
-		System.out.println(j1);
-		
-		// afficher la liste des nom par ordre alphabetique
-		System.out.println(JpaGameRepository.getListJoueursSorted());
-		
-		// afficher les noms des joueurs qui jouent aujourd’hui
-		System.out.println(JpaGameRepository.getJoueursDuJour(LocalDate.of(2019, 02, 24)));
 
-		// Pour un joueur, afficher les informations de l’engin 
-		System.out.println(JpaGameRepository.getEnginAndPartie("delteil"));
-		
-		
+		// afficher les infos du joueur James
+		Joueur j1 = JpaGameRepository.getJoueurByName("tasselli");
+		System.out.println("le joueur" + j1);
+
+		// afficher la liste des nom par ordre alphabetique
+		System.out.println("tri dans l'ordre : " + JpaGameRepository.getListJoueursSorted());
+
+		// afficher les noms des joueurs qui jouent aujourd’hui
+		System.out.println("Partie jouée en date du "+ JpaGameRepository.getJoueursDuJour(LocalDate.of(2019, 02, 17)));
+
+		// Pour un joueur, afficher les informations de l’engin
+		System.out.println("Engin du joueur " + JpaGameRepository.getEngin("mercadier"));
+
+		/*
+		 * Pour ce même joueur, modifier le type d’engin utilisé (bolide vers aéronef ou
+		 * vis- versa) et afficher les modifications
+		 */
+
+//		transaction.begin();
+//
+//		Joueur j3 = em.find(Joueur.class, 4);
+//		System.out.println(j3.toString());
+//		
+//		Bolide bolide = new Bolide();
+//		bolide.set j3.getAvatar();
+//		
+//
+//		Joueur j3 =
+
 		em.close();
 		System.exit(0);
 

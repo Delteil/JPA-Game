@@ -55,9 +55,5 @@ public class Bolide extends Engin {
 	public String toString() {
 		return "Bolide [id=" + id + ", nbRoues=" + nbRoues + ", autonomieHeure=" + autonomieHeure + "]";
 	}
-	
-	
-	
-	
 
 }

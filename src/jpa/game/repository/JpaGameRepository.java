@@ -3,9 +3,10 @@
 a. Afficher les informations du joueur de nom « DOE » ;
 b. Afficher la liste des pseudonymes des joueurs, triés par ordre alphabétique ;
 c. Afficher les noms des joueurs qui jouent aujourd’hui ;
-d. Pour un joueur, afficher les informations de l’engin utilisé dans sa dernière partie
-ainsi que son score et le niveau du jeu atteint ;
-e. Pour ce même joueur, modifier le type d’engin utilisé (bolide vers aéronef ou vis-
+d. Pour un joueur, afficher les informations de ses engins utilisés ;
+e. Pour un joueur et pour sa dernière partie, afficher son score et le niveau du jeu
+atteint ;
+f. Pour ce même joueur, modifier le type d’engin utilisé (bolide vers aéronef ou vis-
 versa) et afficher les modifications ;
 Utilisez autant que possible les requêtes JPQL paramétrées avec des résultats typés
 « TypedQuery ».
@@ -14,18 +15,13 @@ Utilisez autant que possible les requêtes JPQL paramétrées avec des résultats ty
 package jpa.game.repository;
 
 import java.time.LocalDate;
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import database.jpa.game.DatabaseHandlerJpaGame;
-import jpa.game.model.Engin;
 import jpa.game.model.Joueur;
-import jpa.game.model.Partie;
 
 public class JpaGameRepository {
 
@@ -37,7 +33,6 @@ public class JpaGameRepository {
 		TypedQuery<Joueur> q = em.createQuery("SELECT j FROM Joueur j WHERE j.nom= :name", Joueur.class);
 		q.setParameter("name", name);
 		return q.getSingleResult();
-
 	}
 
 	// afficher la liste des joueurs, triés par ordre alphabétique
@@ -59,15 +54,12 @@ public class JpaGameRepository {
 	}
 
 	/*
-	 * Pour un joueur, afficher les informations de l’engin utilisé dans sa dernière
-	 * partie ainsi que son score et le niveau du jeu atteint
+	 * Pour un joueur, afficher les informations de ses engins utilisés ;
 	 */
-	public static Joueur getEnginAndPartie(String nom) {
+	public static Joueur getEngin(String nom) {
 		TypedQuery<Joueur> q = em.createQuery(
-				"SELECT j FROM Joueur j JOIN j.avatar a JOIN a.joueurs JOIN j.parties p JOIN p.joueurs WHERE j.nom = :name AND p.date= :date",
-				Joueur.class);
+				"SELECT j FROM Joueur j JOIN j.avatar a JOIN a.engins WHERE j.nom= :name", Joueur.class);
 		q.setParameter("name", nom);
 		return q.getSingleResult();
 	}
-
 }

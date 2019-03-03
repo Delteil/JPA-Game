@@ -7,6 +7,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import database.jpa.game.DatabaseHandlerJpaGame;
+import jpa.game.model.Bolide;
 import jpa.game.model.Joueur;
 import jpa.game.model.Partie;
 import jpa.game.repository.JpaGameRepository;
@@ -115,14 +116,16 @@ public class MainJpaGame {
 		 * Pour ce même joueur, modifier le type d’engin utilisé (bolide vers aéronef ou
 		 * vis- versa) et afficher les modifications
 		 */
-
+//
 //		transaction.begin();
 //
 //		Joueur j3 = em.find(Joueur.class, 4);
 //		System.out.println(j3.toString());
+//		j3.getAvatar().removeEngin(1);
+//		
 //		
 //		Bolide bolide = new Bolide();
-//		bolide.set j3.getAvatar();
+//		bolide.set.getAvatar();
 //		
 //
 //		Joueur j3 =
